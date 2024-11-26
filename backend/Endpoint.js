@@ -13,7 +13,7 @@ const cred = process.env
 
 // Configure CORS with credentials support
 app.use(cors({
-    origin: 'https://your-vercel-domain.vercel.app',
+    origin: 'https://my-zenith.vercel.app',
     credentials: true
 }));
 
