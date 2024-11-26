@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const ChatRouter = require('./routes/ChatRouter')
 const cors = require('cors');
+
 const FeedbackRouter = require('./routes/FeedbackRouter');
 
 dotenv.config()
@@ -12,7 +13,7 @@ const cred = process.env
 
 // Configure CORS with credentials support
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://your-vercel-domain.vercel.app',
     credentials: true
 }));
 
