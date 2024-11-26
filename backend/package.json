@@ -1,0 +1,31 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@kinde-oss/kinde-nodejs-sdk": "^1.2.4",
+    "body-parser": "^1.20.2",
+    "connect-redis": "^7.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "init": "^0.1.2",
+    "mongoose": "^8.5.4",
+    "nodemon": "^3.1.4",
+    "redis": "^4.7.0"
+  },
+  "name": "zenith",
+  "version": "0.0.1",
+  "description": "An AI therapist chatbot",
+  "main": "Endpoint.js",
+  "scripts": {
+    "start": "nodemon Endpoint.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chatbot",
+    "ai",
+    "therapist"
+  ],
+  "author": "Ritheesh BS",
+  "license": "ISC"
+}
