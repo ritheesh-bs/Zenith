@@ -11,8 +11,15 @@ dotenv.config()
 const app = express()
 const cred = process.env
 
-// Configure CORS with credentials support
-app.use(cors());
+const allowedOrigins = [
+    'http://localhost:3000', // Local development
+    'https://my-zenith.vercel.app' // Your Vercel frontend
+];
+  
+app.use(cors({
+    origin: 'https://my-zenith.vercel.app', // Your frontend origin
+    credentials: true // Allow cookies and other credentials
+}));
 
 // Session configuration
 app.use(session({
