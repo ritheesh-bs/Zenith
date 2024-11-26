@@ -33,7 +33,8 @@ app.use(ChatRouter);
 app.use(FeedbackRouter);
 
 // DB Connect
-mongoose.connect(cred.DB_URL)
+mongoose.connect(
+        cred.STATUS === 'PRODUCTION' ? cred.DB_URL : cred.LOCAL_DB_URL)
     .then(() => console.log("Successfully Connected"))
     .catch((err) => console.log("Could not connect:", err));
 
