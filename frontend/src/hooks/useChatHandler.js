@@ -41,7 +41,7 @@ export function useChat() {
         setError(null);
     
         try {
-            const response = await fetch(
+            await fetch(
                 (process.env.REACT_APP_BACKEND_STATUS==='PRODUCTION' 
                     ? process.env.REACT_APP_BACKEND_API 
                     : process.env.REACT_APP_LOCAL_BACKEND_API) + "/chat/get-response", 
@@ -54,26 +54,13 @@ export function useChat() {
                     },
                     body: JSON.stringify({ message: prompt }),
                 }
-            );
+            ).then((data)=>{
+                setChatHistory(data.chatHistory || [])
+                setPrompt("")
+            }).catch((error)=>{
+                console.error("Failed to get response:", error);
+            });
     
-            // Log the full response for debugging
-            console.log('Response status:', response.status);
-            console.log('Response headers:', Object.fromEntries(response.headers.entries()));
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-    
-            const data = await response.json();
-            
-            // Add more detailed logging
-            console.log('Received data:', data);
-            console.log('Bot Reply:', data.botReply);
-            console.log('Chat History:', data.chatHistory);
-    
-            setChatResponse(data.botReply);
-            setChatHistory(data.chatHistory || []);
-            setPrompt(""); // Clear input after sending
         } catch (err) {
             console.error("Detailed error:", err);
             setError(err.message);
