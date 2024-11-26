@@ -40,9 +40,6 @@ export function useFeedback() {
 
             setStatus("success");
             setMessage("");
-            
-            // Explicitly close modal after successful submission
-            closeModal('feedbackModal');
 
         } catch (error) {
             console.error("Failed to submit feedback:", error);
