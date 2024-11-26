@@ -10,11 +10,6 @@ const FeedbackRouter = require('./routes/FeedbackRouter');
 dotenv.config()
 const app = express()
 const cred = process.env
-
-const allowedOrigins = [
-    'http://localhost:3000', // Local development
-    'https://my-zenith.vercel.app' // Your Vercel frontend
-];
   
 app.use(cors({
     origin: 'https://my-zenith.vercel.app', // Your frontend origin

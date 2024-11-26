@@ -13,7 +13,7 @@ export function useChat() {
         setError(null);
 
         try {
-            const response = await fetch(process.env.REACT_APP_BACKEND_STATUS==='PRODUCTION'? process.env.REACT_APP_BACKEND_API : process.env.REACT_APP_LOCAL_BACKEND_API +"/chat/start-chat", {
+            const response = await fetch((process.env.REACT_APP_BACKEND_STATUS==='PRODUCTION'? process.env.REACT_APP_BACKEND_API : process.env.REACT_APP_LOCAL_BACKEND_API)+"/chat/start-chat", {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
@@ -41,7 +41,7 @@ export function useChat() {
         setError(null);
 
         try {
-            const response = await fetch(process.env.REACT_APP_BACKEND_STATUS==='PRODUCTION'? process.env.REACT_APP_BACKEND_API : process.env.REACT_APP_LOCAL_BACKEND_API +"/chat/get-response", {
+            const response = await fetch((process.env.REACT_APP_BACKEND_STATUS==='PRODUCTION'? process.env.REACT_APP_BACKEND_API : process.env.REACT_APP_LOCAL_BACKEND_API) +"/chat/get-response", {
                 method: "POST",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
