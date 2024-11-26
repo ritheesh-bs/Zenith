@@ -12,10 +12,7 @@ const app = express()
 const cred = process.env
 
 // Configure CORS with credentials support
-app.use(cors({
-    origin: 'https://my-zenith.vercel.app',
-    credentials: true
-}));
+app.use(cors());
 
 // Session configuration
 app.use(session({
