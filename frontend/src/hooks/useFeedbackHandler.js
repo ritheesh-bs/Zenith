@@ -15,7 +15,8 @@ export function useFeedback() {
         setStatus("default"); // Reset status to default on new submission
 
         try {
-            const response = await fetch("http://localhost:8000/feedback", {
+            const response = await fetch(
+                process.env.REACT_APP_BACKEND_STATUS==='PRODUCTION'? process.env.REACT_APP_BACKEND_API : process.env.REACT_APP_LOCAL_BACKEND_API +"/feedback", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message }),
