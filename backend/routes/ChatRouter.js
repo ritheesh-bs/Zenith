@@ -111,11 +111,16 @@ ChatRouter.post('/chat/get-response', async (req, res) => {
         const botReply = await result.response.text();
 
         // Update chat history
+
+        console.log(req.session.chatHistory)
+
         req.session.chatHistory.push({ 
             user: userMessage, 
             bot: botReply,
             timestamp: new Date().toISOString()
         });
+
+        console.log(req.session.chatHistory)
 
         res.json({ 
             botReply, 
