@@ -67,7 +67,7 @@ ChatRouter.post('/chat/start-chat', async(req, res) => {
             timestamp: new Date().toISOString()
         });
   
-        console.log(chatHistory)
+        console.log(req.session.chatHistory)
         res.json({
             chatHistory: req.session.chatHistory 
         });
