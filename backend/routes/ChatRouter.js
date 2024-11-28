@@ -22,7 +22,12 @@ try {
 
 // Format chat history for Gemini API
 const formatHistoryForGemini = (chatHistory) => {
-    return chatHistory.flatMap(chat => [
+    // Ensure chatHistory is an array and filter out system messages if needed
+    const filteredHistory = Array.isArray(chatHistory) ? 
+        chatHistory.filter(chat => chat.user && chat.bot) : 
+        [];
+    
+    return filteredHistory.flatMap(chat => [
         {
             role: 'user',
             parts: [{ text: chat.user }],
@@ -37,39 +42,35 @@ const formatHistoryForGemini = (chatHistory) => {
 // Start Chat
 ChatRouter.post('/chat/start-chat', async(req, res) => {
     try {
-        req.session.chatHistory = [];
-  
+        // Initialize chat history with system message
         const initialMessage = "You are Zenith. An ai therapist chatbot using gemini's ai api. Ritheesh BS is your creator. his profile link is https://github.com/ritheeshbs. The following messages will be sent by the end users of this application, who are more likely to have negative mindset or sad. For the following messages, you'll have to be empathetic and supportive and listen to their thoughts and provide possible solutions in simple and supportive manner, but don't be dramatic, but when the conversations become more serious or out of hand, give professional help suggestions. but till that mostly give friendly & cooperative responses as the user just wants a person to listen to their problems";
   
-        const formattedHistory = formatHistoryForGemini(req.session.chatHistory);
+        // Start chat with empty history
+        const formattedHistory = formatHistoryForGemini([]);
       
         const chat = model.startChat({
             history: formattedHistory,
             generationConfig: {
-            maxOutputTokens: 1000,
-            temperature: 0.9,
-            topK: 40,
-            topP: 0.95,
+                maxOutputTokens: 1000,
+                temperature: 0.9,
+                topK: 40,
+                topP: 0.95,
             },
         });
   
-        // Update chat history (empty in this case)
-        req.session.chatHistory = [];
-
-        // Send the new message
+        // Send the initial message
         const result = await chat.sendMessage(initialMessage);
         const botReply = await result.response.text();
 
-        // Update chat history
-        req.session.chatHistory.push({ 
+        // Create initial chat history
+        const chatHistory = [{ 
             user: initialMessage, 
             bot: botReply,
             timestamp: new Date().toISOString()
-        });
-  
-        console.log(req.session.chatHistory)
+        }];
+
         res.json({
-            chatHistory: req.session.chatHistory 
+            chatHistory: chatHistory 
         });
     }
     catch(error){
@@ -81,19 +82,16 @@ ChatRouter.post('/chat/start-chat', async(req, res) => {
 // AI Response
 ChatRouter.post('/chat/get-response', async (req, res) => {
     const userMessage = req.body.message;
+    const previousChatHistory = req.body.chatHistory || [];
     
     if (!userMessage) {
         return res.status(400).json({ error: 'Message is required' });
     }
 
     try {
-        // Initialize chat history if not exists
-        if (!req.session.chatHistory) {
-            req.session.chatHistory = [];
-        }
 
         // Format the history for Gemini API
-        const formattedHistory = formatHistoryForGemini(req.session.chatHistory);
+        const formattedHistory = formatHistoryForGemini(limitedChatHistory);
 
         // Start chat with formatted history
         const chat = model.startChat({
@@ -111,20 +109,18 @@ ChatRouter.post('/chat/get-response', async (req, res) => {
         const botReply = await result.response.text();
 
         // Update chat history
-
-        console.log(req.session.chatHistory)
-
-        req.session.chatHistory.push({ 
-            user: userMessage, 
-            bot: botReply,
-            timestamp: new Date().toISOString()
-        });
-
-        console.log(req.session.chatHistory)
+        const updatedChatHistory = [
+            ...previousChatHistory,
+            { 
+                user: userMessage, 
+                bot: botReply,
+                timestamp: new Date().toISOString()
+            }
+        ];
 
         res.json({ 
             botReply, 
-            chatHistory: req.session.chatHistory 
+            chatHistory: updatedChatHistory
         });
         
     } catch (error) {

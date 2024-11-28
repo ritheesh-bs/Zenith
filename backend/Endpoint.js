@@ -12,7 +12,7 @@ const app = express()
 const cred = process.env
   
 app.use(cors({
-    origin: 'https://my-zenith.vercel.app', // Your frontend origin
+    origin: cred.FRONTEND_URL, // Your frontend origin
     credentials: true // Allow cookies and other credentials
 }));
 
