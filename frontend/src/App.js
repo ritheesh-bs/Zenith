@@ -9,7 +9,7 @@ export default function App() {
     const { modals, openModal, closeModal } = useModal();
     return (
         <ChatProvider>
-            <div className="relative flex flex-col min-h-screen w-full bg-black font-medium">
+            <div className="relative flex flex-col h-screen min-h-screen w-full bg-black font-medium">
                 <ProfileContainer />
                 <BgImage />
                 <MainPage />
