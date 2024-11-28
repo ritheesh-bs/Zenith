@@ -91,7 +91,7 @@ ChatRouter.post('/chat/get-response', async (req, res) => {
     try {
 
         // Format the history for Gemini API
-        const formattedHistory = formatHistoryForGemini(limitedChatHistory);
+        const formattedHistory = formatHistoryForGemini(previousChatHistory);
 
         // Start chat with formatted history
         const chat = model.startChat({
