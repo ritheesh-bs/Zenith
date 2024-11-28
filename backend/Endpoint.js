@@ -12,7 +12,7 @@ const app = express()
 const cred = process.env
   
 app.use(cors({
-    origin: cred.FRONTEND_URL, // Your frontend origin
+    origin: cred.STATUS==='PRODUCTION'? cred.FRONTEND_URL : "http://localhost:3000", // Your frontend origin
     credentials: true // Allow cookies and other credentials
 }));
 
@@ -34,7 +34,7 @@ app.use(FeedbackRouter);
 
 // DB Connect
 mongoose.connect(
-        cred.STATUS === 'PRODUCTION' ? cred.DB_URL : cred.LOCAL_DB_URL)
+        cred.STATUS === 'PRODUCTION' ? cred.DB_URL : cred.DB_LOCAL_URL)
     .then(() => console.log("Successfully Connected"))
     .catch((err) => console.log("Could not connect:", err));
 

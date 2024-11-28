@@ -17,13 +17,13 @@ export default function MainPage() {
     } = useChat(); // Now using the shared context
 
     return (
-        <div className="flex flex-col max-w-[700px] mx-auto space-y-4 h-screen z-1 relative">
+        <div className="flex flex-col flex-1 w-auto-full lg:max-w-[700px] mx-auto space-y-4 z-1 relative p-4 lg:p-0">
             {isStarted ? (
-                <div className="flex flex-col h-full w-full p-9 gap-3">
+                <div className="flex flex-col h-full w-auto-full p-9 gap-3">
                     {chatHistory && chatHistory.length > 1 ? (
                         <ChatScreen chatHistory={chatHistory.slice(1)} />
                     ) : (
-                        <div className="flex flex-col h-full w-full items-center justify-center">
+                        <div className="flex flex-col h-full w-auto-full items-center justify-center">
                             <CautionMessage />
                         </div>
                     )}

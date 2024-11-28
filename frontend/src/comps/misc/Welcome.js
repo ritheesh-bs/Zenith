@@ -42,7 +42,7 @@ export default function Welcome({startChat, isLoading}){
     }, [currentText, currentIndex, isTyping])
 
     return (
-        <div className="relative flex flex-col w-[380px] m-auto p-6 gap-8 bg-[#0B0B0B]/25 border-[0.5px] border-[#222222] rounded-[32px] align-center inline-block z-2 purple-shadow overflow-visible">
+        <div className="relative flex flex-col w-auto-fill m-auto mx-2 lg:mx-auto lg:w-[380px] p-6 gap-6 lg:gap-8 bg-[#0B0B0B]/50 lg:bg-[#0B0B0B]/25 border-[0.5px] border-[#222222] rounded-[32px] align-center inline-block z-2 purple-shadow overflow-visible">
             <div className="flex flex-col gap-3 w-full text-[#666666] items-center text-sm">
                 <div className="flex flex-col w-full items-center gap-4" >
                     <img className="flex size-12 " src={Logo} alt='Zenith logo' />
@@ -63,9 +63,6 @@ export default function Welcome({startChat, isLoading}){
                 </p>
             </div>
 
-            {/* <button className="flex w-full rounded-full bg-white text-black p-3 h-[48px] justify-center items-center " onClick={startChat} disabled={isLoading}>
-                {isLoading ? <DotLoadingicon /> : "Start chat "}
-            </button> */}
             <Button label="Start chat" handleEvent={startChat} isLoading={isLoading}/>
         </div>
     )

@@ -21,7 +21,7 @@ export default function FeedbackSuccess(){
     }, []);
 
     return (<div 
-        ref={feedbackSuccessContainerRef} className="flex flex-col w-[380px] gap-6 p-6 bg-[#0B0B0B] border-[0.5px] border-[#222222] rounded-3xl white-shadow">
+        ref={feedbackSuccessContainerRef} className="flex flex-col w-auto-full lg:w-[380px] gap-6 p-6 mx-4 lg:mx-auto bg-[#0B0B0B] border-[0.5px] border-[#222222] rounded-3xl white-shadow">
         <div className="flex flex-col gap-3 w-full">
             <HeartsIcon />
             <p className="w-fit max-w-full break-words text-[#666666] prose prose-invert">

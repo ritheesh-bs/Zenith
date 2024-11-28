@@ -25,7 +25,7 @@ export default function ChatScreen({ chatHistory }) {
     return (
         <div
             ref={containerRef}
-            className="flex flex-col p-4 flex-1 overflow-y-auto w-full scrollbar-hide text-sm"
+            className="flex flex-col lg:p-4 flex-1 overflow-y-auto w-full scrollbar-hide text-sm"
             style={{ display: 'flex', flexDirection: 'column-reverse' }}
         >
             <div ref={messagesEndRef} />

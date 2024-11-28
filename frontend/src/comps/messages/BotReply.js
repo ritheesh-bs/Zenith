@@ -22,7 +22,7 @@ export default function BotReply({ message, time }) {
 
     return (
         <div className="flex w-full">
-            <div className="inline-block max-w-[500px]">
+            <div className="inline-block max-w-[300px] lg:max-w-[500px]">
                 <div className="bg-[#121212] border-[0.5px] border-[#222222] rounded-3xl rounded-bl-none p-4 space-y-2">
                     <div className="text-xs flex gap-1.5 items-center">
                         <span className="text-[#666666]">Zenith</span>

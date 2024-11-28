@@ -27,7 +27,7 @@ export default function ProfileContainer() {
     return (
         <div
             ref={ProfileContainerRef}
-            className="fixed flex flex-col gap-3 top-8 left-8 white-shadow"
+            className="fixed flex flex-col mx-6 my-4 lg:m-0 gap-3 lg:top-8 lg:left-8 white-shadow z-10"
         >
             <img
                 className="size-8 cursor-pointer"
@@ -37,7 +37,7 @@ export default function ProfileContainer() {
             />
 
             {isActive && (
-                <div className="flex flex-col border-[0.5px] border-[#222222] bg-[#0B0B0B] rounded-3xl overflow-clip -ml-2">
+                <div className="flex m-auto flex-col border-[0.5px] border-[#222222] bg-[#0B0B0B] rounded-3xl overflow-clip -ml-2 ">
                     <Options />
                     <hr className="border-[0.5px] border-[#222222]" />
                     <Profile />

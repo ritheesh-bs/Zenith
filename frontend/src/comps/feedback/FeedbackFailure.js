@@ -21,11 +21,11 @@ export default function FeedbackFailure({resetFeedback}){
     }, []);
 
     return (<div 
-        ref={feedbackFailureContainerRef} className="flex flex-col w-[380px] gap-6 p-6 bg-[#0B0B0B] border-[0.5px] border-[#222222] rounded-3xl red-shadow">
+        ref={feedbackFailureContainerRef} className="flex flex-col w-auto-full lg:w-[380px] gap-6 p-6 mx-4 bg-[#0B0B0B] border-[0.5px] border-[#222222] rounded-3xl red-shadow">
         <div className="flex flex-col gap-3 w-full">
             <SadIcon />
             <p className="w-fit max-w-full break-words text-[#666666] prose prose-invert">
-                Uh-oh! We couldn't recieve your feedback. But hey! we appreciate your thoughts. Why don't you try again?
+                Uh-oh! We couldn't receive your feedback. But hey! we appreciate your thoughts. Why don't you try again?
             </p>
         </div>
 
