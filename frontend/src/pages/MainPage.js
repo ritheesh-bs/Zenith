@@ -19,7 +19,7 @@ export default function MainPage() {
     return (
         <div className="relative flex flex-col h-screen min-h-screen w-auto-full lg:w-[700px] mx-2 lg:mx-auto space-y-4 z-1 relative p-4 lg:p-0">
             {isStarted ? (
-                <div className="flex flex-1 flex-col w-auto-full lg:p-9 gap-4">
+                <div className="flex h-screen flex-col w-auto-full lg:p-9 gap-4">
                     {chatHistory && chatHistory.length > 1 ? (
                         <ChatScreen chatHistory={chatHistory.slice(1)} />
                     ) : (
