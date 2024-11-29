@@ -9,11 +9,13 @@ export default function App() {
     const { modals, openModal, closeModal } = useModal();
     return (
         <ChatProvider>
-            <div className="relative flex flex-col h-screen min-h-screen w-full bg-black font-medium">
-                <ProfileContainer />
+            <div className="relative flex flex-col h-dvh min-h-dvh w-full bg-black font-medium">
+                {/* Your components look good */}
+                
                 <BgImage />
                 <MainPage />
-
+                <ProfileContainer />
+                
                 {modals.feedbackModal && <FeedbackModal onClose={() => closeModal('feedbackModal')} />}
             </div>
         </ChatProvider>

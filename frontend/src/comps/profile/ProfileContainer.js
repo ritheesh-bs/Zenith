@@ -37,7 +37,7 @@ export default function ProfileContainer() {
             />
 
             {isActive && (
-                <div className="flex m-auto flex-col border-[0.5px] border-[#222222] bg-[#0B0B0B] rounded-3xl overflow-clip -ml-2 ">
+                <div className="flex m-auto flex-col border-[0.5px] border-[#222222] bg-[#0B0B0B] rounded-3xl overflow-clip -ml-2 z-50 relative">
                     <Options />
                     <hr className="border-[0.5px] border-[#222222]" />
                     <Profile />

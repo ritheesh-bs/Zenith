@@ -14,26 +14,23 @@ export default function MainPage() {
         isStarted,
         startChat,
         getResponse,
-    } = useChat(); // Now using the shared context
+    } = useChat();
 
     return (
-        <div className="relative flex flex-col h-screen min-h-screen w-auto-full lg:w-[700px] mx-2 lg:mx-auto space-y-4 z-1 relative p-4 lg:p-0">
+        <div className="relative flex flex-col h-dvh w-dvd p-2 lg:w-[700px] mx-2 lg:mx-auto space-y-4 z-10">
             {isStarted ? (
-                <div className="flex h-screen flex-col w-auto-full lg:p-9 gap-4">
-                    {chatHistory && chatHistory.length > 1 ? (
+                <div className="flex flex-col h-dvh w-full">
+                    <div className="flex-1 overflow-y-auto p-4">
                         <ChatScreen chatHistory={chatHistory.slice(1)} />
-                    ) : (
-                        <div className="flex flex-col w-auto-full items-center flex-1 justify-center">
-                            <CautionMessage />
-                        </div>
-                    )}
-
-                    <InputField
-                        prompt={prompt}
-                        setPrompt={setPrompt}
-                        getResponse={getResponse}
-                        isLoading={isLoading}
-                    />
+                    </div>
+                    <div className="p-4">
+                        <InputField
+                            prompt={prompt}
+                            setPrompt={setPrompt}
+                            getResponse={getResponse}
+                            isLoading={isLoading}
+                        />
+                    </div>
                 </div>
             ) : (
                 <Welcome startChat={startChat} isLoading={isLoading} />

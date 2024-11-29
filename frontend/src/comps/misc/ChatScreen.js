@@ -26,9 +26,8 @@ export default function ChatScreen({ chatHistory }) {
         <div
             ref={containerRef}
             className="flex flex-col lg:p-4 flex-1 overflow-y-auto w-full scrollbar-hide text-sm"
-            style={{ display: 'flex', flexDirection: 'column-reverse' }}
+            style={{ flexDirection: 'column-reverse' }}
         >
-            <div ref={messagesEndRef} />
             <div className="flex flex-col gap-3">
                 {chatHistory && chatHistory.map((chat, index) => (
                     <div key={index} className="flex flex-col gap-3 w-full">
@@ -37,6 +36,7 @@ export default function ChatScreen({ chatHistory }) {
                     </div>
                 ))}
             </div>
+            <div ref={messagesEndRef} />
         </div>
     );
 }

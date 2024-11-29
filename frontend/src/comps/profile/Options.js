@@ -19,11 +19,11 @@ export default function Options() {
             {options.map((option) => (
                 <div 
                     key={option.label}
-                    className="group/option cursor-pointer flex gap-5 lg:gap-3 p-4 lg:p-2 w-full rounded-2xl hover:bg-[#060606] hover:text-[#CCCCCC]" 
+                    className="group/option cursor-pointer flex gap-5 lg:gap-3 p-3 lg:p-2 w-full rounded-2xl hover:bg-[#060606] hover:text-[#CCCCCC]" 
                     onClick={option.handleEvent}
                 >
                     {option.icon}
-                    <p className="px-1 text-[16px] lg:text-[14px]">{option.label}</p>
+                    <p className="px-1 lg:text-[14px]">{option.label}</p>
                 </div>
             ))}
         </div>

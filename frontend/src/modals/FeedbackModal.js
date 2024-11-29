@@ -9,7 +9,7 @@ export default function FeedbackModal() {
     const { message, setMessage, status, submitFeedback, resetFeedback, isLoading } = useFeedback();
 
     return (
-        <div className="flex text-sm flex-col w-full items-center h-screen justify-center fixed inset-0 bg-black bg-opacity-10 backdrop-blur-[200px] z-10">
+        <div className="flex text-sm flex-col w-full items-center h-dvh justify-center fixed inset-0 bg-black bg-opacity-10 backdrop-blur-[200px] z-10">
             {status === "default" && (
                 <NewFeedback message={message} setMessage={setMessage} submitFeedback={submitFeedback} isLoading={isLoading} />
             )}
