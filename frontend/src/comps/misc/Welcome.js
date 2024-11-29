@@ -43,7 +43,7 @@ export default function Welcome({startChat, isLoading}){
     }, [currentText, currentIndex, isTyping])
 
     return (
-        <div className="relative flex flex-col w-auto-fill m-auto mx-2 lg:mx-auto lg:w-[380px] p-6 gap-6 lg:gap-8 bg-white-100 dark:bg-gray-400/50 lg:dark:bg-gray-400/25 border-[0.5px] border-slate-100 dark:border-gray-500 rounded-[32px] align-center inline-block z-2 purple-shadow overflow-visible">
+        <div className="relative flex flex-col w-auto-full m-auto mx-2 lg:mx-auto lg:w-[380px] p-6 gap-6 lg:gap-8 bg-white-100 dark:bg-gray-400/50 lg:dark:bg-gray-400/25 border-[0.5px] border-slate-100 dark:border-gray-500 rounded-[32px] align-center inline-block z-2 purple-shadow overflow-visible">
             <div className="flex flex-col gap-3 w-full text-gray-800 dark:text-gray-800 items-center text-sm">
                 <div className="flex flex-col w-full items-center gap-4" >
                     <img className="flex size-12 dark:hidden" src={LightLogo} alt='Zenith logo' />
