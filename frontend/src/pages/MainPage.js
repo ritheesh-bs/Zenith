@@ -30,7 +30,7 @@ export default function MainPage() {
                             </div>
                         )}
                     </div>
-                    <div className="p-4">
+                    <div className="p-2">
                         <InputField
                             prompt={prompt}
                             setPrompt={setPrompt}
