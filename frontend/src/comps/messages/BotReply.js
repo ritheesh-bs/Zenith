@@ -21,18 +21,18 @@ export default function BotReply({ message, time }) {
     };
 
     return (
-        <div className="flex w-full">
+        <div className="flex w-full bg-transparent overflow-none">
             <div className="inline-block max-w-[300px] lg:max-w-[500px]">
-                <div className="bg-[#121212] border-[0.5px] border-[#222222] rounded-3xl rounded-bl-none p-4 space-y-2">
+                <div className="bg-white-100 dark:bg-gray-300 border-[0.5px] border-slate-100 dark:border-gray-500 rounded-3xl rounded-bl-none p-4 space-y-2">
                     <div className="text-xs flex gap-1.5 items-center">
-                        <span className="text-[#666666]">Zenith</span>
-                        <span className="w-[2px] h-[2px] bg-[#333333] rounded-full" />
-                        <span className="text-[#333333]">{getRelativeTime(time)}</span>
+                        <span className="text-slate-300 dark:text-gray-800">Zenith</span>
+                        <span className="w-[2px] h-[2px] bg-slate-200 dark:bg-gray-600 rounded-full" />
+                        <span className="text-slate-200 dark:text-gray-600">{getRelativeTime(time)}</span>
                     </div>
 
                     <div className="w-full overflow-hidden">
                         <ReactMarkdown
-                            className="prose prose-invert text-[#AAAAAA] w-fit max-w-full break-words"
+                            className="prose prose-invert text-gray-600 dark:text-slate-300 w-fit max-w-full break-words"
                             remarkPlugins={[remarkGfm]}
                         >
                             {message}

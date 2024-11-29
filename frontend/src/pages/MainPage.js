@@ -17,11 +17,18 @@ export default function MainPage() {
     } = useChat();
 
     return (
-        <div className="relative flex flex-col h-dvh w-dvd p-2 lg:w-[700px] mx-2 lg:mx-auto space-y-4 z-10">
+        <div className="relative flex flex-col h-dvh max-h-dvh w-dvw p-2 lg:w-[700px] mx-2 lg:mx-auto space-y-4 z-10">
             {isStarted ? (
-                <div className="flex flex-col h-dvh w-full">
-                    <div className="flex-1 overflow-y-auto p-4">
-                        <ChatScreen chatHistory={chatHistory.slice(1)} />
+                <div className="flex flex-col h-dvh max-h-dvh w-full">
+                    <div className="flex flex-1 overflow-y-auto p-4 scrollbar-hide">
+                        {chatHistory && chatHistory.length > 1 
+                            ? (
+                                <ChatScreen chatHistory={chatHistory.slice(1)} />
+                            ) 
+                        :   (<div className="flex flex-col h-full w-auto-full items-center justify-center m-auto">
+                                <CautionMessage />
+                            </div>
+                        )}
                     </div>
                     <div className="p-4">
                         <InputField

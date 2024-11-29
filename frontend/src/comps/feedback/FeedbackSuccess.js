@@ -21,10 +21,10 @@ export default function FeedbackSuccess(){
     }, []);
 
     return (<div 
-        ref={feedbackSuccessContainerRef} className="flex flex-col w-auto-full lg:w-[380px] gap-6 p-6 mx-4 lg:mx-auto bg-[#0B0B0B] border-[0.5px] border-[#222222] rounded-3xl white-shadow">
-        <div className="flex flex-col gap-3 w-full">
+        ref={feedbackSuccessContainerRef} className="flex flex-col w-auto-full lg:w-[380px] gap-6 p-6 mx-4 lg:mx-auto bg-white-100 dark:bg-gray-400 border-[0.5px] border-slate-100 dark:border-gray-500 rounded-3xl white-shadow">
+        <div className="flex flex-col gap-4 lg:gap-3 w-full">
             <HeartsIcon />
-            <p className="w-fit max-w-full break-words text-[#666666] prose prose-invert">
+            <p className="w-fit max-w-full break-words text-gray-800 dark:text-gray-800 prose prose-invert">
                 We received your feedback. Thank you for helping us make Zenith better for everyone. Have a great day!
             </p>
         </div>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Button from './Button'
-import Logo from '../../assets/images/zenith-logo.png'
+import DarkLogo from '../../assets/images/zenith-logo-dark.png'
+import LightLogo from '../../assets/images/zenith-logo.png'
 
 export default function Welcome({startChat, isLoading}){
     const characteristics = ['AI companion', 'friend', 'therapist', 'supporter', 'well-wisher']
@@ -42,18 +43,19 @@ export default function Welcome({startChat, isLoading}){
     }, [currentText, currentIndex, isTyping])
 
     return (
-        <div className="relative flex flex-col w-auto-fill m-auto mx-2 lg:mx-auto lg:w-[380px] p-6 gap-6 lg:gap-8 bg-[#0B0B0B]/50 lg:bg-[#0B0B0B]/25 border-[0.5px] border-[#222222] rounded-[32px] align-center inline-block z-2 purple-shadow overflow-visible">
-            <div className="flex flex-col gap-3 w-full text-[#666666] items-center text-sm">
+        <div className="relative flex flex-col w-auto-fill m-auto mx-2 lg:mx-auto lg:w-[380px] p-6 gap-6 lg:gap-8 bg-white-100 dark:bg-gray-400/50 lg:dark:bg-gray-400/25 border-[0.5px] border-slate-100 dark:border-gray-500 rounded-[32px] align-center inline-block z-2 purple-shadow overflow-visible">
+            <div className="flex flex-col gap-3 w-full text-gray-800 dark:text-gray-800 items-center text-sm">
                 <div className="flex flex-col w-full items-center gap-4" >
-                    <img className="flex size-12 " src={Logo} alt='Zenith logo' />
+                    <img className="flex size-12 dark:hidden" src={LightLogo} alt='Zenith logo' />
+                    <img className="flex size-12 hidden dark:block" src={DarkLogo} alt='Zenith logo' />
 
                     <div className="flex flex-col w-full items-center gap-1/2">
-                        <p className="text-[#CCCCCC] text-xl">
+                        <p className="text-black dark:text-slate-200 text-xl">
                             Zenith
                         </p>
                         <p>
-                            Your personal <span className="text-[#AAAAAA]">{currentText}</span>
-                            <span className="text-[#CCCCCC] animate-pulse">|</span>
+                            Your personal <span className="text-black dark:text-slate-300">{currentText}</span>
+                            <span className="text-slate-200 animate-pulse">|</span>
                         </p>
                     </div>
                 </div>

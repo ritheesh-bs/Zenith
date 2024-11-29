@@ -25,7 +25,7 @@ export default function ChatScreen({ chatHistory }) {
     return (
         <div
             ref={containerRef}
-            className="flex flex-col lg:p-4 flex-1 overflow-y-auto w-full scrollbar-hide text-sm"
+            className="flex flex-col lg:p-4 flex-1 overflow-y-auto w-full scrollbar-hide text-sm scrollbar-hide"
             style={{ flexDirection: 'column-reverse' }}
         >
             <div className="flex flex-col gap-3">

@@ -11,9 +11,9 @@ export default function InputField({prompt, setPrompt, getResponse, isLoading}) 
         }
     }
 
-    return (<div className="flex p-1 gap-2 w-full rounded-2xl bg-[#0B0B0B]/30 border-[0.5px] border-[#222222] items-center">
+    return (<div className="flex p-1 gap-2 lg:w-full rounded-2xl bg-white-300 dark:bg-gray-400/30 border-[0.5px] border-slate-100 focus:border-black dark:border-gray-500 items-center">
         <input
-            className="flex-1 px-2.5 py-2 text-sm text-[#CCCCCC] bg-transparent border-0 focus:outline-none placeholder:text-[#333333]"
+            className="flex-1 px-2.5 py-2 text-sm text-black dark:text-slate-200 bg-transparent border-0 focus:outline-none placeholder:text-slate-300 placeholder:dark:text-gray-600"
             name="input"
             id="prompt"
             autoComplete="off"
@@ -26,11 +26,7 @@ export default function InputField({prompt, setPrompt, getResponse, isLoading}) 
 
         {prompt &&
             <button
-                className={`p-2 w-fit h-fit bg-white rounded-xl ${
-                    isLoading 
-                        ? 'bg-gray-400 cursor-not-allowed' 
-                        : 'bg-blue-500 hover:bg-blue-600'
-                } text-white`}
+                className={`group/send p-2 w-fit h-fit bg-black rounded-xl dark:bg-white-100`}
                 onClick={getResponse}
                 disabled={isLoading}
             >

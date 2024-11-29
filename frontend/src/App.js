@@ -4,13 +4,15 @@ import FeedbackModal from "./modals/FeedbackModal";
 import MainPage from "./pages/MainPage";
 import { useModal } from "./store/ModalStore";
 import { ChatProvider } from './store/ChatStore';
+import { useTheme } from "./hooks/useThemeHandler";
 
 export default function App() {
     const { modals, openModal, closeModal } = useModal();
+    const { currentTheme } = useTheme();
+
     return (
         <ChatProvider>
-            <div className="relative flex flex-col h-dvh min-h-dvh w-full bg-black font-medium">
-                {/* Your components look good */}
+            <div className={`relative flex flex-col h-dvh min-h-dvh w-full dark:bg-black bg-white-200 font-medium scrollbar-hide ${currentTheme}`}>
                 
                 <BgImage />
                 <MainPage />
