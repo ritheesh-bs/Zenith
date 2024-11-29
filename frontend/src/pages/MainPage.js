@@ -17,9 +17,9 @@ export default function MainPage() {
     } = useChat();
 
     return (
-        <div className="relative flex flex-col h-dvh max-h-dvh w-dvw p-2 lg:w-[700px] mx-2 lg:mx-auto space-y-4 z-10">
+        <div className="relative flex flex-col h-dvh max-h-dvh w-auto-full lg:w-[700px] mx-2 lg:mx-auto space-y-2 z-10">
             {isStarted ? (
-                <div className="flex flex-col h-dvh max-h-dvh w-full">
+                <div className="flex flex-col h-dvh max-h-dvh w-full p-2 lg:p-4">
                     <div className="flex flex-1 overflow-y-auto p-4 scrollbar-hide">
                         {chatHistory && chatHistory.length > 1 
                             ? (
@@ -30,7 +30,7 @@ export default function MainPage() {
                             </div>
                         )}
                     </div>
-                    <div className="p-2">
+                    <div className="p-1">
                         <InputField
                             prompt={prompt}
                             setPrompt={setPrompt}
