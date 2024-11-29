@@ -25,7 +25,7 @@ export default function MainPage() {
                             ? (
                                 <ChatScreen chatHistory={chatHistory.slice(1)} />
                             ) 
-                        :   (<div className="flex flex-col h-full w-auto-full items-center justify-center m-auto">
+                        :   (<div className="flex flex-col h-full w-full items-center justify-center m-auto">
                                 <CautionMessage />
                             </div>
                         )}
