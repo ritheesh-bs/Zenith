@@ -3,7 +3,7 @@ import LightBackgroundImage from "./../../assets/images/light-bg.png";
 
 export default function BgImage() {
     return (
-        <picture>
+        <picture className="z-0">
             <img 
                 src={DarkBackgroundImage}
                 alt="Background image"

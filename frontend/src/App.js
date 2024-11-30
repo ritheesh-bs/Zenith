@@ -12,7 +12,7 @@ export default function App() {
 
     return (
         <ChatProvider>
-            <div className={`relative flex flex-col h-dvh max-h-dvh w-full dark:bg-black bg-white-200 font-medium scrollbar-hide ${currentTheme}`}>
+            <div className={`relative flex flex-col h-dvh max-h-dvh w-full dark:bg-black bg-white-200 font-medium scrollbar-hide`}>
                 
                 <BgImage />
                 <MainPage />

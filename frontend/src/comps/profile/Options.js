@@ -16,7 +16,7 @@ export default function Options() {
         { label: "Start new chat", icon: <PlusIcon />, handleEvent: startChat },
         { label: "Message to creator", icon: <FeedbackIcon />, handleEvent: () => { openModal('feedbackModal') } },
         { label: "Source code", icon: <GithubIcon />, handleEvent: () => { window.open("https://github.com/ritheesh-bs/Zenith", "_blank") } },
-        { label: "Switch theme", icon: currentTheme ? <MoonIcon/> : <SunIcon />, handleEvent:()=>{console.log("theme switched");switchTheme()} },
+        { label: "Switch theme", icon: currentTheme === 'dark' ? <MoonIcon/> : <SunIcon />, handleEvent:switchTheme },
     ]
 
     return (

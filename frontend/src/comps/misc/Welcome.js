@@ -55,7 +55,7 @@ export default function Welcome({startChat, isLoading}){
                         </p>
                         <p>
                             Your personal <span className="text-black dark:text-slate-300">{currentText}</span>
-                            <span className="text-slate-200 animate-pulse">|</span>
+                            <span className="text-gray-700 dark:text-slate-200 animate-pulse">|</span>
                         </p>
                     </div>
                 </div>
